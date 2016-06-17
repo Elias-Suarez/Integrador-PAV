@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsChofer" targetNamespace="http://tempuri.org/dsChofer.xsd" xmlns:mstns="http://tempuri.org/dsChofer.xsd" xmlns="http://tempuri.org/dsChofer.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsChofer" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsChofer" msprop:Generator_UserDSName="dsChofer">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Listado" msprop:Generator_TableClassName="ListadoDataTable" msprop:Generator_TableVarName="tableListado" msprop:Generator_RowChangedName="ListadoRowChanged" msprop:Generator_TablePropName="Listado" msprop:Generator_RowDeletingName="ListadoRowDeleting" msprop:Generator_RowChangingName="ListadoRowChanging" msprop:Generator_RowEvHandlerName="ListadoRowChangeEventHandler" msprop:Generator_RowDeletedName="ListadoRowDeleted" msprop:Generator_RowClassName="ListadoRow" msprop:Generator_UserTableName="Listado" msprop:Generator_RowEvArgName="ListadoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="km" msprop:Generator_ColumnVarNameInTable="columnkm" msprop:Generator_ColumnPropNameInRow="km" msprop:Generator_ColumnPropNameInTable="kmColumn" msprop:Generator_UserColumnName="km" type="xs:int" minOccurs="0" />
+              <xs:element name="chofer" msprop:Generator_ColumnVarNameInTable="columnchofer" msprop:Generator_ColumnPropNameInRow="chofer" msprop:Generator_ColumnPropNameInTable="choferColumn" msprop:Generator_UserColumnName="chofer" type="xs:string" minOccurs="0" />
+              <xs:element name="documento" msprop:Generator_ColumnVarNameInTable="columndocumento" msprop:Generator_ColumnPropNameInRow="documento" msprop:Generator_ColumnPropNameInTable="documentoColumn" msprop:Generator_UserColumnName="documento" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ListaChofer" msprop:Generator_TableClassName="ListaChoferDataTable" msprop:Generator_TableVarName="tableListaChofer" msprop:Generator_TablePropName="ListaChofer" msprop:Generator_RowDeletingName="ListaChoferRowDeleting" msprop:Generator_RowChangingName="ListaChoferRowChanging" msprop:Generator_RowEvHandlerName="ListaChoferRowChangeEventHandler" msprop:Generator_RowDeletedName="ListaChoferRowDeleted" msprop:Generator_UserTableName="ListaChofer" msprop:Generator_RowChangedName="ListaChoferRowChanged" msprop:Generator_RowEvArgName="ListaChoferRowChangeEvent" msprop:Generator_RowClassName="ListaChoferRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="km" msprop:Generator_ColumnVarNameInTable="columnkm" msprop:Generator_ColumnPropNameInRow="km" msprop:Generator_ColumnPropNameInTable="kmColumn" msprop:Generator_UserColumnName="km" type="xs:int" minOccurs="0" />
+              <xs:element name="patente" msprop:Generator_ColumnVarNameInTable="columnpatente" msprop:Generator_ColumnPropNameInRow="patente" msprop:Generator_ColumnPropNameInTable="patenteColumn" msprop:Generator_UserColumnName="patente" type="xs:string" minOccurs="0" />
+              <xs:element name="domicilio" msprop:Generator_ColumnVarNameInTable="columndomicilio" msprop:Generator_ColumnPropNameInRow="domicilio" msprop:Generator_ColumnPropNameInTable="domicilioColumn" msprop:Generator_UserColumnName="domicilio" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre_contacto" msprop:Generator_ColumnVarNameInTable="columnnombre_contacto" msprop:Generator_ColumnPropNameInRow="nombre_contacto" msprop:Generator_ColumnPropNameInTable="nombre_contactoColumn" msprop:Generator_UserColumnName="nombre_contacto" type="xs:string" minOccurs="0" />
+              <xs:element name="fecha_salida" msprop:Generator_ColumnVarNameInTable="columnfecha_salida" msprop:Generator_ColumnPropNameInRow="fecha_salida" msprop:Generator_ColumnPropNameInTable="fecha_salidaColumn" msprop:Generator_UserColumnName="fecha_salida" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fecha_llegada" msprop:Generator_ColumnVarNameInTable="columnfecha_llegada" msprop:Generator_ColumnPropNameInRow="fecha_llegada" msprop:Generator_ColumnPropNameInTable="fecha_llegadaColumn" msprop:Generator_UserColumnName="fecha_llegada" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="chofer" msprop:Generator_ColumnVarNameInTable="columnchofer" msprop:Generator_ColumnPropNameInRow="chofer" msprop:Generator_ColumnPropNameInTable="choferColumn" msprop:Generator_UserColumnName="chofer" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
