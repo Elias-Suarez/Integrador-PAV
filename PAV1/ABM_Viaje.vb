@@ -17,7 +17,7 @@
         cmb.cargar_combo(Me.cbx_provincia_destino, "nro_provincia", "nombre", "Provincia")
         cmb.cargar_combo(Me.cbx_provincia_origen, "nro_provincia", "nombre", "Provincia")
 
-        cmb.carga_dgv("viaje v, Chofer c, localidad o, localidad d", Me.dgv_ABM_Viaje, "v.patente, v.fecha_salida, c.nombre, c.apellido, o.nombre as 'origen', d.nombre as 'destino'", "v.tipo_doc_chofer = c.tipo_doc and v.nro_doc_chofer = c.nro_doc and o.cp = v.localidad_origen and v.localidad_destino = d.cp")
+        cmb.carga_dgv("viaje v, Chofer c, localidad o, localidad d", Me.dgv_ABM_Viaje, "v.patente, CONVERT(nvarchar(20),v.fecha_salida,103) 'fecha_salida', c.nombre, c.apellido, o.nombre as 'origen', d.nombre as 'destino'", "v.tipo_doc_chofer = c.tipo_doc and v.nro_doc_chofer = c.nro_doc and o.cp = v.localidad_origen and v.localidad_destino = d.cp")
 
         Me.iniciar()
     End Sub
@@ -131,12 +131,12 @@
         Me.cbx_localidad_origen.Enabled = True
 
         Dim p As String = t.Rows.Item(dgv_ABM_Viaje.CurrentRow.Index).Item("patente")
-        Dim f As String = Convert.ToDateTime(t.Rows.Item(dgv_ABM_Viaje.CurrentRow.Index).Item("fecha_salida"))
-
+        Dim f_sal As Date = t.Rows.Item(dgv_ABM_Viaje.CurrentRow.Index).Item("fecha_salida")
+        Dim f As String = Format(f_sal, "yyyy-MM-dd")
         Dim acceso As New AccesoDatos With {._nombre_tabla = "viaje v, localidad o, localidad d"}
 
-        Dim tabla As DataTable = acceso.leo_tabla("v.*, CONVERT(CHAR(10), fecha_salida, 103) 'salida', CONVERT(CHAR(10), fecha_llegada, 103) 'llegada', o.nro_provincia 'origen', d.nro_provincia 'destino'", "v.patente = '" & p & "' and v.fecha_salida = '" & f & "' and v.localidad_origen = o.cp and v.localidad_destino = d.cp")
-        Me.mtb_fecha_salida.Text = Convert.ToDateTime(tabla.Rows(0).Item("salida"))
+        Dim tabla As DataTable = acceso.leo_tabla("v.*, convert(nvarchar(20),v.fecha_salida,103) 'salida', CONVERT(nvarchar(20), v.fecha_llegada, 103) 'llegada', o.nro_provincia 'origen', d.nro_provincia 'destino'", "v.patente = '" & p & "' and v.fecha_salida = '" & f & "' and v.localidad_origen = o.cp and v.localidad_destino = d.cp")
+        Me.mtb_fecha_salida.Text = tabla.Rows(0).Item("salida")
         Me.cbx_patente.SelectedValue = p
 
         Me.cbx_tipo_documento.SelectedValue = tabla.Rows.Item(0).Item("tipo_doc_chofer")
@@ -159,7 +159,7 @@
         Me.cbx_localidad_destino.SelectedValue = tabla.Rows(0).Item("localidad_origen")
         Me.cbx_provincia_destino.SelectedValue = tabla.Rows(0).Item("destino")
         Me.cbx_localidad_destino.SelectedValue = tabla.Rows(0).Item("localidad_destino")
-        Me.mtb_fecha_llegada.Text = Convert.ToDateTime(tabla.Rows(0).Item("llegada"))
+        Me.mtb_fecha_llegada.Text = tabla.Rows(0).Item("llegada")
         Me.txt_kilometros.Text = tabla.Rows(0).Item("kilometros")
         Me.txt_domiciolio_entrega.Text = tabla.Rows(0).Item("domicilio_entrega")
         Me.txt_numero_cliente.Text = tabla.Rows(0).Item("nro_cuit")
