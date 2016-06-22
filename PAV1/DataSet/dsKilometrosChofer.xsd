@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsKilometrosChofer" targetNamespace="http://tempuri.org/dsKilometrosChofer.xsd" xmlns:mstns="http://tempuri.org/dsKilometrosChofer.xsd" xmlns="http://tempuri.org/dsKilometrosChofer.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsKilometrosChofer" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsKilometrosChofer" msprop:Generator_UserDSName="dsKilometrosChofer">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="KmPorMes" msprop:Generator_TableClassName="KmPorMesDataTable" msprop:Generator_TableVarName="tableKmPorMes" msprop:Generator_TablePropName="KmPorMes" msprop:Generator_RowDeletingName="KmPorMesRowDeleting" msprop:Generator_RowChangingName="KmPorMesRowChanging" msprop:Generator_RowEvHandlerName="KmPorMesRowChangeEventHandler" msprop:Generator_RowDeletedName="KmPorMesRowDeleted" msprop:Generator_UserTableName="KmPorMes" msprop:Generator_RowChangedName="KmPorMesRowChanged" msprop:Generator_RowEvArgName="KmPorMesRowChangeEvent" msprop:Generator_RowClassName="KmPorMesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="km" msprop:Generator_ColumnVarNameInTable="columnkm" msprop:Generator_ColumnPropNameInRow="km" msprop:Generator_ColumnPropNameInTable="kmColumn" msprop:Generator_UserColumnName="km" type="xs:int" minOccurs="0" />
+              <xs:element name="mes" msprop:Generator_ColumnVarNameInTable="columnmes" msprop:Generator_ColumnPropNameInRow="mes" msprop:Generator_ColumnPropNameInTable="mesColumn" msprop:Generator_UserColumnName="mes" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

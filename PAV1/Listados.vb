@@ -34,4 +34,14 @@
         Me.Close()
 
     End Sub
+
+    Private Sub btnKMMensuales_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnKMMensuales.Click
+        KilometrosPorChofer.Show()
+        Me.Close()
+    End Sub
+
+    Private Sub btnClientes_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClientes.Click
+        ViajesPorCliente.Show()
+        Me.Close()
+    End Sub
 End Class

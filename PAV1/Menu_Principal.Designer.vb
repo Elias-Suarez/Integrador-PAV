@@ -149,7 +149,6 @@ Partial Class Menu_Principal
         Me.Controls.Add(Me.btn_viajes)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximumSize = New System.Drawing.Size(773, 307)
-        Me.MinimumSize = New System.Drawing.Size(773, 307)
         Me.Name = "Menu_Principal"
         Me.Text = "Menu Principal"
         Me.ResumeLayout(False)

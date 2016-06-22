@@ -28,6 +28,10 @@ Partial Class Listados
         Me.btnCargas = New System.Windows.Forms.Button()
         Me.btnVolver = New System.Windows.Forms.Button()
         Me.btnTaller = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnKMMensuales = New System.Windows.Forms.Button()
+        Me.btnClientes = New System.Windows.Forms.Button()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnMantenimiento
@@ -68,7 +72,7 @@ Partial Class Listados
         '
         'btnVolver
         '
-        Me.btnVolver.Location = New System.Drawing.Point(389, 259)
+        Me.btnVolver.Location = New System.Drawing.Point(444, 426)
         Me.btnVolver.Name = "btnVolver"
         Me.btnVolver.Size = New System.Drawing.Size(75, 23)
         Me.btnVolver.TabIndex = 4
@@ -84,11 +88,41 @@ Partial Class Listados
         Me.btnTaller.Text = "Talleres mas usados"
         Me.btnTaller.UseVisualStyleBackColor = True
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.btnKMMensuales)
+        Me.GroupBox1.Controls.Add(Me.btnClientes)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 182)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(507, 222)
+        Me.GroupBox1.TabIndex = 6
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "GroupBox1"
+        '
+        'btnKMMensuales
+        '
+        Me.btnKMMensuales.Location = New System.Drawing.Point(33, 34)
+        Me.btnKMMensuales.Name = "btnKMMensuales"
+        Me.btnKMMensuales.Size = New System.Drawing.Size(167, 26)
+        Me.btnKMMensuales.TabIndex = 7
+        Me.btnKMMensuales.Text = "KM Mensuales"
+        Me.btnKMMensuales.UseVisualStyleBackColor = True
+        '
+        'btnClientes
+        '
+        Me.btnClientes.Location = New System.Drawing.Point(33, 78)
+        Me.btnClientes.Name = "btnClientes"
+        Me.btnClientes.Size = New System.Drawing.Size(167, 26)
+        Me.btnClientes.TabIndex = 8
+        Me.btnClientes.Text = "Clientes con mas pedidos"
+        Me.btnClientes.UseVisualStyleBackColor = True
+        '
         'Listados
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(501, 316)
+        Me.ClientSize = New System.Drawing.Size(578, 459)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnTaller)
         Me.Controls.Add(Me.btnVolver)
         Me.Controls.Add(Me.btnCargas)
@@ -97,6 +131,7 @@ Partial Class Listados
         Me.Controls.Add(Me.btnMantenimiento)
         Me.Name = "Listados"
         Me.Text = "Listados"
+        Me.GroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -106,4 +141,7 @@ Partial Class Listados
     Friend WithEvents btnCargas As System.Windows.Forms.Button
     Friend WithEvents btnVolver As System.Windows.Forms.Button
     Friend WithEvents btnTaller As System.Windows.Forms.Button
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents btnKMMensuales As System.Windows.Forms.Button
+    Friend WithEvents btnClientes As System.Windows.Forms.Button
 End Class

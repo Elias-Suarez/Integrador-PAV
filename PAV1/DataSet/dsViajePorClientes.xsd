@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsViajePorClientes" targetNamespace="http://tempuri.org/dsViajePorClientes.xsd" xmlns:mstns="http://tempuri.org/dsViajePorClientes.xsd" xmlns="http://tempuri.org/dsViajePorClientes.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsViajePorClientes" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsViajePorClientes" msprop:Generator_UserDSName="dsViajePorClientes">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="EstadisicasViajes" msprop:Generator_TableClassName="EstadisicasViajesDataTable" msprop:Generator_TableVarName="tableEstadisicasViajes" msprop:Generator_TablePropName="EstadisicasViajes" msprop:Generator_RowDeletingName="EstadisicasViajesRowDeleting" msprop:Generator_RowChangingName="EstadisicasViajesRowChanging" msprop:Generator_RowEvHandlerName="EstadisicasViajesRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadisicasViajesRowDeleted" msprop:Generator_UserTableName="EstadisicasViajes" msprop:Generator_RowChangedName="EstadisicasViajesRowChanged" msprop:Generator_RowEvArgName="EstadisicasViajesRowChangeEvent" msprop:Generator_RowClassName="EstadisicasViajesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="cantidad" msprop:Generator_ColumnVarNameInTable="columncantidad" msprop:Generator_ColumnPropNameInRow="cantidad" msprop:Generator_ColumnPropNameInTable="cantidadColumn" msprop:Generator_UserColumnName="cantidad" type="xs:int" minOccurs="0" />
+              <xs:element name="nombre_contacto" msprop:Generator_ColumnVarNameInTable="columnnombre_contacto" msprop:Generator_ColumnPropNameInRow="nombre_contacto" msprop:Generator_ColumnPropNameInTable="nombre_contactoColumn" msprop:Generator_UserColumnName="nombre_contacto" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

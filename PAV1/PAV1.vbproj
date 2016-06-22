@@ -176,12 +176,28 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Data_Mantenimientos.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\dsKilometrosChofer.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsKilometrosChofer.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\dsViajePorClientes.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsViajePorClientes.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DATO\ConexionBD.vb" />
     <Compile Include="DATO\ModeloCombo.vb" />
     <Compile Include="ABM_Trabajo.Designer.vb">
       <DependentUpon>ABM_Trabajo.vb</DependentUpon>
     </Compile>
     <Compile Include="ABM_Trabajo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KilometrosPorChofer.Designer.vb">
+      <DependentUpon>KilometrosPorChofer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="KilometrosPorChofer.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Listados.Designer.vb">
@@ -233,6 +249,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Report_Manteimiento_mas_realizad.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\rptEstadisticasClientes.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptEstadisticasClientes.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\rptKmMensuales.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptKmMensuales.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reporte\dsChofer.Designer.vb">
@@ -287,6 +315,12 @@
     <Compile Include="Talleres_mas_Usados.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ViajesPorCliente.Designer.vb">
+      <DependentUpon>ViajesPorCliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ViajesPorCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ABM_Carga.resx">
@@ -326,6 +360,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport21.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="KilometrosPorChofer.resx">
+      <DependentUpon>KilometrosPorChofer.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Listados.resx">
       <DependentUpon>Listados.vb</DependentUpon>
     </EmbeddedResource>
@@ -354,6 +391,14 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Report_Manteimiento_mas_realizad1.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptEstadisticasClientes.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptEstadisticasClientes.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptKmMensuales.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptKmMensuales.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reporte\frm_CargasFrecuentes.resx">
       <DependentUpon>frm_CargasFrecuentes.vb</DependentUpon>
     </EmbeddedResource>
@@ -379,6 +424,9 @@
     <EmbeddedResource Include="Talleres_mas_Usados.resx">
       <DependentUpon>Talleres_mas_Usados.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ViajesPorCliente.resx">
+      <DependentUpon>ViajesPorCliente.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -403,6 +451,28 @@
     </None>
     <None Include="DataSet\Data_Mantenimientos.xss">
       <DependentUpon>Data_Mantenimientos.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\dsKilometrosChofer.xsc">
+      <DependentUpon>dsKilometrosChofer.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\dsKilometrosChofer.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsKilometrosChofer.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\dsKilometrosChofer.xss">
+      <DependentUpon>dsKilometrosChofer.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\dsViajePorClientes.xsc">
+      <DependentUpon>dsViajePorClientes.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\dsViajePorClientes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsViajePorClientes.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\dsViajePorClientes.xss">
+      <DependentUpon>dsViajePorClientes.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
