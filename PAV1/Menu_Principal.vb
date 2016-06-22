@@ -32,6 +32,7 @@
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        ABM_Mantenimiento.Show()
     End Sub
 
     Private Sub btn_listados_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_listados.Click

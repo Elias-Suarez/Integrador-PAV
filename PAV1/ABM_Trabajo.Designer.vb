@@ -29,8 +29,8 @@ Partial Class ABM_Trabajo
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtx_nombre = New System.Windows.Forms.TextBox()
         Me.chk_confirmar = New System.Windows.Forms.CheckBox()
-        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgv_trabajos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -39,7 +39,7 @@ Partial Class ABM_Trabajo
         Me.dgv_trabajos.AllowUserToAddRows = False
         Me.dgv_trabajos.AllowUserToDeleteRows = False
         Me.dgv_trabajos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_trabajos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nombre, Me.id})
+        Me.dgv_trabajos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.nombre})
         Me.dgv_trabajos.Location = New System.Drawing.Point(12, 38)
         Me.dgv_trabajos.Name = "dgv_trabajos"
         Me.dgv_trabajos.ReadOnly = True
@@ -99,20 +99,19 @@ Partial Class ABM_Trabajo
         Me.chk_confirmar.Text = "Confirmar operación"
         Me.chk_confirmar.UseVisualStyleBackColor = True
         '
+        'id
+        '
+        Me.id.DataPropertyName = "id"
+        Me.id.HeaderText = "Código"
+        Me.id.Name = "id"
+        Me.id.ReadOnly = True
+        '
         'nombre
         '
         Me.nombre.DataPropertyName = "nombre"
         Me.nombre.HeaderText = "Nombre"
         Me.nombre.Name = "nombre"
         Me.nombre.ReadOnly = True
-        '
-        'id
-        '
-        Me.id.DataPropertyName = "id"
-        Me.id.HeaderText = "Id"
-        Me.id.Name = "id"
-        Me.id.ReadOnly = True
-        Me.id.Visible = False
         '
         'ABM_Trabajo
         '
@@ -140,6 +139,6 @@ Partial Class ABM_Trabajo
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents txtx_nombre As System.Windows.Forms.TextBox
     Friend WithEvents chk_confirmar As System.Windows.Forms.CheckBox
-    Friend WithEvents nombre As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents nombre As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

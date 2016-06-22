@@ -115,7 +115,7 @@
                 Else
 
                     rest = "patente = '" & Me.cmb_patente.SelectedValue & "' "
-                    rest &= " and fecha = CONVERT( VARCHAR(10), '" & mtb_fecha.Text & "',103), "
+                    rest &= " and fecha = CONVERT( VARCHAR(10), '" & mtb_fecha.Text & "',103) "
 
                     cadena = " cod_taller = " & Me.cmb_taller.SelectedValue & ", "
                     cadena &= "kilometraje = " & Me.txt_kilometros.Text
