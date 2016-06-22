@@ -35,6 +35,7 @@
         Next
 
         'group viaje
+        Me.grp_viaje.Enabled = True
         Me.cbx_patente.Enabled = True
         Me.mtb_fecha_salida.Enabled = True
         Me.btn_crear_viaje.Enabled = True
@@ -410,7 +411,7 @@
                 mtb_fecha_llegada.Focus()
             Else
                 Me.lbl_alerta_campo.Visible = False
-                Me.lbl_alerta_fecha_salida.Visible = False
+                Me.lbl_alerta_fecha_llegada.Visible = False
             End If
         End If
     End Sub
@@ -422,11 +423,11 @@
             lbl_alerta_kilometros.Visible = True
         Else
             If txt_kilometros.Text <= 0 Then
-                MessageBox.Show("Este campo no puede ser negativo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Este campo no puede ser negativo o cero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 mtb_fecha_llegada.Focus()
             Else
                 Me.lbl_alerta_campo.Visible = False
-                Me.lbl_alerta_fecha_salida.Visible = False
+                Me.lbl_alerta_kilometros.Visible = False
             End If
         End If
     End Sub
@@ -463,7 +464,7 @@
                 mtb_fecha_llegada.Focus()
             Else
                 Me.lbl_alerta_campo.Visible = False
-                Me.lbl_alerta_fecha_salida.Visible = False
+                Me.lbl_alerta_numero_cliente.Visible = False
             End If
         End If
     End Sub

@@ -7,7 +7,7 @@
         alan
     End Enum
 
-    Dim str_conexion As bases = bases.elias
+    Dim str_conexion As bases = bases.ale
     Dim cadena_conexion As String = ""
     Dim cmd As New SqlClient.SqlCommand
     Dim conexion As New SqlClient.SqlConnection
@@ -37,7 +37,7 @@
     Private Sub elegir_base()
         Select Case str_conexion
             Case bases.ale
-                Me.cadena_conexion = "Data Source=CORDOBA\SQLEXPRESS;Initial Catalog=Transporte_DonLui;Integrated Security=SSPI"
+                Me.cadena_conexion = "Data Source=CORDOBA\SQLEXPRESS;Initial Catalog=BD_Transporte_Don-Lui;Integrated Security=True"
             Case bases.david
             Case bases.alan
             Case bases.elias

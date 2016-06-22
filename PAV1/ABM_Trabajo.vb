@@ -33,8 +33,9 @@
         btn_guardar.Enabled = True
 
         chk_confirmar.Checked = False
+        accionGuardar = Guardar.modificar
 
-        Me.actualizar_grilla()
+
     End Sub
 
     Private Sub modo_crear()
@@ -46,6 +47,9 @@
         btn_guardar.Enabled = True
 
         chk_confirmar.Checked = False
+        accionGuardar = Guardar.insertar
+
+        Me.actualizar_grilla()
     End Sub
 
     Private Sub actualizar_grilla()
@@ -67,6 +71,7 @@
             End If
             modo_inicio()
         Else
+            chk_confirmar.Checked = False
             MessageBox.Show("Confirmar Operación", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
@@ -76,11 +81,12 @@
             Dim acceso As New AccesoDatos With {._nombre_tabla = "Trabajo"}
             If Not txtx_nombre.Text = "" Then
                 If accionGuardar = Guardar.insertar Then
+
                     acceso.insertar2(" (nombre) VALUES ('" & txtx_nombre.Text & "')")
-                    actualizar_grilla()
-                    accionGuardar = Guardar.modificar
-                    'Dim t As DataTable = acceso.leo_tabla(" max(id) ").Rows.Item(0).Item(0)
                     indice = acceso.leo_tabla(" max(id) ").Rows.Item(0).Item(0)
+                    accionGuardar = Guardar.modificar
+                    Me.modo_editar()
+                    Me.actualizar_grilla()
                 Else
 
                     acceso.modificar(" nombre = '" & txtx_nombre.Text & "'", " id = " & indice)
@@ -88,8 +94,8 @@
                     accionGuardar = Guardar.modificar
                 End If
             Else
-                'MessageBox.Show("Nombre no puede ser un campo vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-
+                chk_confirmar.Checked = False
+                MessageBox.Show("Nombre no puede ser un campo vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
 
         Else
@@ -103,11 +109,11 @@
 
     Private Sub dgv_trabajos_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgv_trabajos.CellDoubleClick
         Dim t As DataTable = dgv_trabajos.DataSource
-        modo_editar()
 
         txtx_nombre.Text = t.Rows.Item(dgv_trabajos.CurrentRow.Index).Item(1)
         indice = t.Rows.Item(dgv_trabajos.CurrentRow.Index).Item(0)
 
+        modo_editar()
     End Sub
 
 #End Region

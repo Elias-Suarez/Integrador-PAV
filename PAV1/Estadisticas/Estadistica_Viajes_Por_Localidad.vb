@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class reporteChofer
+Public Class Estadistica_Viajes_Por_Localidad
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class reporteChofer
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "reporteChofer.rpt"
+            Return "Estadistica_Viajes_Por_Localidad.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class reporteChofer
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "PAV1.reporteChofer.rpt"
+            Return "PAV1.Estadistica_Viajes_Por_Localidad.rpt"
         End Get
         Set
             'Do nothing
@@ -94,7 +94,7 @@ Public Class reporteChofer
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedreporteChofer
+Public Class CachedEstadistica_Viajes_Por_Localidad
     Inherits Component
     Implements ICachedReport
     
@@ -136,7 +136,7 @@ Public Class CachedreporteChofer
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As reporteChofer = New reporteChofer()
+        Dim rpt As Estadistica_Viajes_Por_Localidad = New Estadistica_Viajes_Por_Localidad()
         rpt.Site = Me.Site
         Return rpt
     End Function

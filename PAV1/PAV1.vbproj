@@ -73,6 +73,8 @@
     <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -176,6 +178,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Data_Mantenimientos.xsd</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="DataSet\dsKilometrosChofer.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -185,6 +188,15 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsViajePorClientes.xsd</DependentUpon>
+=======
+    <Compile Include="DataSet\DS_Viajes_Por_Localidad.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_Viajes_Por_Localidad.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\DS_Viajes_Por_Localidad.vb">
+      <DependentUpon>DS_Viajes_Por_Localidad.xsd</DependentUpon>
+>>>>>>> 426df8017469deb67a3cae9268a2021897f513ff
     </Compile>
     <Compile Include="DATO\ConexionBD.vb" />
     <Compile Include="DATO\ModeloCombo.vb" />
@@ -194,10 +206,34 @@
     <Compile Include="ABM_Trabajo.vb">
       <SubType>Form</SubType>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="KilometrosPorChofer.Designer.vb">
       <DependentUpon>KilometrosPorChofer.vb</DependentUpon>
     </Compile>
     <Compile Include="KilometrosPorChofer.vb">
+=======
+    <Compile Include="DS_Mantenimientos_Mensuales.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_Mantenimientos_Mensuales.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\Estadistica_Viajes_Por_Localidad.vb">
+      <DependentUpon>Estadistica_Viajes_Por_Localidad.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Estad_Viajes_Por_Localidad.Designer.vb">
+      <DependentUpon>Estad_Viajes_Por_Localidad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estad_Viajes_Por_Localidad.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Mantenimientos_Mensuales.Designer.vb">
+      <DependentUpon>Form_Mantenimientos_Mensuales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Mantenimientos_Mensuales.vb">
+>>>>>>> 426df8017469deb67a3cae9268a2021897f513ff
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Listados.Designer.vb">
@@ -360,8 +396,21 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport21.vb</LastGenOutput>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="KilometrosPorChofer.resx">
       <DependentUpon>KilometrosPorChofer.vb</DependentUpon>
+=======
+    <EmbeddedResource Include="Estadisticas\Estadistica_Mantenimientos_Mensuales.rdlc" />
+    <EmbeddedResource Include="Estadisticas\Estadistica_Viajes_Por_Localidad.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Estadistica_Viajes_Por_Localidad.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estad_Viajes_Por_Localidad.resx">
+      <DependentUpon>Estad_Viajes_Por_Localidad.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Mantenimientos_Mensuales.resx">
+      <DependentUpon>Form_Mantenimientos_Mensuales.vb</DependentUpon>
+>>>>>>> 426df8017469deb67a3cae9268a2021897f513ff
     </EmbeddedResource>
     <EmbeddedResource Include="Listados.resx">
       <DependentUpon>Listados.vb</DependentUpon>
@@ -452,6 +501,7 @@
     <None Include="DataSet\Data_Mantenimientos.xss">
       <DependentUpon>Data_Mantenimientos.xsd</DependentUpon>
     </None>
+<<<<<<< HEAD
     <None Include="DataSet\dsKilometrosChofer.xsc">
       <DependentUpon>dsKilometrosChofer.xsd</DependentUpon>
     </None>
@@ -473,6 +523,29 @@
     </None>
     <None Include="DataSet\dsViajePorClientes.xss">
       <DependentUpon>dsViajePorClientes.xsd</DependentUpon>
+=======
+    <None Include="DataSet\DS_Viajes_Por_Localidad.xsc">
+      <DependentUpon>DS_Viajes_Por_Localidad.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DS_Viajes_Por_Localidad.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_Viajes_Por_Localidad.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\DS_Viajes_Por_Localidad.xss">
+      <DependentUpon>DS_Viajes_Por_Localidad.xsd</DependentUpon>
+    </None>
+    <None Include="DS_Mantenimientos_Mensuales.xsc">
+      <DependentUpon>DS_Mantenimientos_Mensuales.xsd</DependentUpon>
+    </None>
+    <None Include="DS_Mantenimientos_Mensuales.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_Mantenimientos_Mensuales.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DS_Mantenimientos_Mensuales.xss">
+      <DependentUpon>DS_Mantenimientos_Mensuales.xsd</DependentUpon>
+>>>>>>> 426df8017469deb67a3cae9268a2021897f513ff
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -507,9 +580,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database1.sdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="logistics-delivery-truck-in-movement_2_.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -541,6 +611,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
