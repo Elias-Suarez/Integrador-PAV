@@ -156,7 +156,29 @@
         Me.Close()
     End Sub
 
+    Private Sub dgv_mantenimiento_CellDoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles dgv_mantenimiento.CellDoubleClick
+        Dim acceso As New AccesoDatos With {._nombre_tabla = " Mantenimiento m, taller t "}
+        Dim col As String = ""
+        Dim rest As String = ""
+        Dim t As DataTable = dgv_mantenimiento.DataSource
+        Dim f_man As Date = t.Rows.Item(dgv_mantenimiento.CurrentRow.Index).Item("fecha")
+        Dim f As String = Format(f_man, "yyyy-MM-dd")
 
+
+
+        col = " m.patente, m.fecha, m.kilometraje, t.* "
+        rest = " m.fecha = '" & f & "' and m.patente = '" & t.Rows.Item(dgv_mantenimiento.CurrentRow.Index).Item("Patente") & "' and m.cod_taller = t.codigo_taller"
+
+        t = acceso.leo_tabla(col, rest)
+
+        Me.cmb_patente.SelectedValue = t.Rows.Item(0).Item("patente")
+        Me.mtb_fecha.Text = Convert.ToDateTime(t.Rows.Item(0).Item("fecha"))
+        Me.txt_kilometros.Text = t.Rows.Item(0).Item("kilometraje")
+        Me.cmb_taller.SelectedValue = t.Rows.Item(0).Item("codigo_taller")
+
+        Me.accionGuardar = Guardar.modificar
+        Me.modo_editar()
+    End Sub
 
 #End Region
 
@@ -171,6 +193,10 @@
 
     Private Sub mtb_fecha_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles mtb_fecha.LostFocus
         Me.alerta_foco(mtb_fecha, lbl_alerta_fecha)
+
+        If mtb_fecha.MaskCompleted And Not IsDate(mtb_fecha.Text) Then
+            MessageBox.Show("El dato ingresado no es una fecha válida", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
     End Sub
 
     Private Sub txt_kilometros_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_kilometros.KeyPress
@@ -197,6 +223,10 @@
                 If ctrl.Text = "" Then
                     b = True
                 End If
+            Case "MaskedTextBox"
+                If Not CType(ctrl, MaskedTextBox).MaskCompleted Then
+                    b = True
+                End If
             Case "ComboBox"
                 Dim c As ComboBox = ctrl
                 If c.SelectedIndex = -1 Then
@@ -208,25 +238,6 @@
 
     End Sub
 
-    Private Sub dgv_mantenimiento_CellDoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles dgv_mantenimiento.CellDoubleClick
-        Dim acceso As New AccesoDatos With {._nombre_tabla = " Mantenimiento m, taller t "}
-        Dim col As String = ""
-        Dim rest As String = ""
-        Dim t As DataTable = dgv_mantenimiento.DataSource
-
-        col = " m.patente, m.fecha, m.kilometraje, t.* "
-        rest = " m.fecha = '" & Convert.ToDateTime(t.Rows.Item(dgv_mantenimiento.CurrentRow.Index).Item("Fecha")) & "' and m.patente = '" & t.Rows.Item(dgv_mantenimiento.CurrentRow.Index).Item("Patente") & "' and m.cod_taller = t.codigo_taller"
-
-        t = acceso.leo_tabla(col, rest)
-
-        Me.cmb_patente.SelectedValue = t.Rows.Item(0).Item("patente")
-        Me.mtb_fecha.Text = Convert.ToDateTime(t.Rows.Item(0).Item("fecha"))
-        Me.txt_kilometros.Text = t.Rows.Item(0).Item("kilometraje")
-        Me.cmb_taller.SelectedValue = t.Rows.Item(0).Item("codigo_taller")
-
-        Me.accionGuardar = Guardar.modificar
-        Me.modo_editar()
-    End Sub
 
 #End Region
 
