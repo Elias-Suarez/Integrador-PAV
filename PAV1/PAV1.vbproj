@@ -1,0 +1,619 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C7AD0703-2D69-43F3-90F1-E2897D5CDD6D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>PAV1.My.MyApplication</StartupObject>
+    <RootNamespace>PAV1</RootNamespace>
+    <AssemblyName>PAV1</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>PAV1.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>PAV1.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logistics-delivery-truck-in-movement_2_.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ABM_Carga.Designer.vb">
+      <DependentUpon>ABM_Carga.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM_Carga.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM_Chofer.Designer.vb">
+      <DependentUpon>ABM_Chofer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM_Chofer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM_Clientes.Designer.vb">
+      <DependentUpon>ABM_Clientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM_Clientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM_Detalle_Mantenimiento.Designer.vb">
+      <DependentUpon>ABM_Detalle_Mantenimiento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM_Detalle_Mantenimiento.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM_Detalle_Viajes.Designer.vb">
+      <DependentUpon>ABM_Detalle_Viajes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM_Detalle_Viajes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM_Mantenimiento.Designer.vb">
+      <DependentUpon>ABM_Mantenimiento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM_Mantenimiento.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM_Taller.Designer.vb">
+      <DependentUpon>ABM_Taller.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM_Taller.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM_Viaje.Designer.vb">
+      <DependentUpon>ABM_Viaje.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM_Viaje.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccesoDatos.vb" />
+    <Compile Include="Camion.Designer.vb">
+      <DependentUpon>Camion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Camion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Camiones_Mas_Reparados.Designer.vb">
+      <DependentUpon>Camiones_Mas_Reparados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Camiones_Mas_Reparados.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Combo.vb" />
+    <Compile Include="CrystalReport21.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSet\Data_camiones_mas_reparados1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Data_camiones_mas_reparados.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\Data_Mantenimientos1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Data_Mantenimientos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\dsKilometrosChofer.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsKilometrosChofer.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\dsViajePorClientes.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsViajePorClientes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\DS_Viajes_Por_Localidad.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_Viajes_Por_Localidad.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\DS_Viajes_Por_Localidad.vb">
+      <DependentUpon>DS_Viajes_Por_Localidad.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DATO\ConexionBD.vb" />
+    <Compile Include="DATO\ModeloCombo.vb" />
+    <Compile Include="ABM_Trabajo.Designer.vb">
+      <DependentUpon>ABM_Trabajo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM_Trabajo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KilometrosPorChofer.Designer.vb">
+      <DependentUpon>KilometrosPorChofer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="KilometrosPorChofer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DS_Mantenimientos_Mensuales.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_Mantenimientos_Mensuales.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\Estadistica_Viajes_Por_Localidad.vb">
+      <DependentUpon>Estadistica_Viajes_Por_Localidad.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Estad_Viajes_Por_Localidad.Designer.vb">
+      <DependentUpon>Estad_Viajes_Por_Localidad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estad_Viajes_Por_Localidad.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Mantenimientos_Mensuales.Designer.vb">
+      <DependentUpon>Form_Mantenimientos_Mensuales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Mantenimientos_Mensuales.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados.Designer.vb">
+      <DependentUpon>Listados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Listados.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos_Mas_Realizados.Designer.vb">
+      <DependentUpon>Mantenimientos_Mas_Realizados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos_Mas_Realizados.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu_Principal.Designer.vb">
+      <DependentUpon>Menu_Principal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Principal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Reportes\CrystalReport1.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\Report_Camiones_mas_reparados1.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Report_Camiones_mas_reparados.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\Report_Manteimiento_mas_realizad1.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Report_Manteimiento_mas_realizad.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\rptEstadisticasClientes.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptEstadisticasClientes.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\rptKmMensuales.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptKmMensuales.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporte\dsChofer.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsChofer.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\dsTipoCarga.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsTipoCarga.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\frm_CargasFrecuentes.Designer.vb">
+      <DependentUpon>frm_CargasFrecuentes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\frm_CargasFrecuentes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\frm_reporteChofer.Designer.vb">
+      <DependentUpon>frm_reporteChofer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\frm_reporteChofer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\reporteCarga.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>reporteCarga.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporte\reporteChofer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>reporteChofer.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporte\rptChofer_filtro.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptChofer_filtro.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporte\rptTipoCarga_filtro.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptTipoCarga_filtro.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Talleres_mas_Usados.Designer.vb">
+      <DependentUpon>Talleres_mas_Usados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Talleres_mas_Usados.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViajesPorCliente.Designer.vb">
+      <DependentUpon>ViajesPorCliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ViajesPorCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ABM_Carga.resx">
+      <DependentUpon>ABM_Carga.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM_Chofer.resx">
+      <DependentUpon>ABM_Chofer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM_Clientes.resx">
+      <DependentUpon>ABM_Clientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM_Detalle_Mantenimiento.resx">
+      <DependentUpon>ABM_Detalle_Mantenimiento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM_Detalle_Viajes.resx">
+      <DependentUpon>ABM_Detalle_Viajes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM_Mantenimiento.resx">
+      <DependentUpon>ABM_Mantenimiento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM_Taller.resx">
+      <DependentUpon>ABM_Taller.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM_Viaje.resx">
+      <DependentUpon>ABM_Viaje.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Camion.resx">
+      <DependentUpon>Camion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM_Trabajo.resx">
+      <DependentUpon>ABM_Trabajo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Camiones_Mas_Reparados.resx">
+      <DependentUpon>Camiones_Mas_Reparados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport21.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KilometrosPorChofer.resx">
+      <DependentUpon>KilometrosPorChofer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\Estadistica_Mantenimientos_Mensuales.rdlc" />
+    <EmbeddedResource Include="Estadisticas\Estadistica_Viajes_Por_Localidad.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Estadistica_Viajes_Por_Localidad.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estad_Viajes_Por_Localidad.resx">
+      <DependentUpon>Estad_Viajes_Por_Localidad.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Mantenimientos_Mensuales.resx">
+      <DependentUpon>Form_Mantenimientos_Mensuales.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados.resx">
+      <DependentUpon>Listados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos_Mas_Realizados.resx">
+      <DependentUpon>Mantenimientos_Mas_Realizados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu_Principal.resx">
+      <DependentUpon>Menu_Principal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Report1.rdlc" />
+    <EmbeddedResource Include="Reportes\Report_Camiones_mas_reparados.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Report_Camiones_mas_reparados1.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Report_Manteimiento_mas_realizad.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Report_Manteimiento_mas_realizad1.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptEstadisticasClientes.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptEstadisticasClientes.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptKmMensuales.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptKmMensuales.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\frm_CargasFrecuentes.resx">
+      <DependentUpon>frm_CargasFrecuentes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\frm_reporteChofer.resx">
+      <DependentUpon>frm_reporteChofer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\reporteCarga.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reporteCarga.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\reporteChofer.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reporteChofer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\rptChofer_filtro.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptChofer_filtro.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\rptTipoCarga_filtro.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTipoCarga_filtro.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Talleres_mas_Usados.resx">
+      <DependentUpon>Talleres_mas_Usados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViajesPorCliente.resx">
+      <DependentUpon>ViajesPorCliente.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DataSet\Data_camiones_mas_reparados.xsc">
+      <DependentUpon>Data_camiones_mas_reparados.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\Data_camiones_mas_reparados.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Data_camiones_mas_reparados1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet\Data_camiones_mas_reparados.xss">
+      <DependentUpon>Data_camiones_mas_reparados.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\Data_Mantenimientos.xsc">
+      <DependentUpon>Data_Mantenimientos.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\Data_Mantenimientos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Data_Mantenimientos1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet\Data_Mantenimientos.xss">
+      <DependentUpon>Data_Mantenimientos.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\dsKilometrosChofer.xsc">
+      <DependentUpon>dsKilometrosChofer.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\dsKilometrosChofer.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsKilometrosChofer.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\dsKilometrosChofer.xss">
+      <DependentUpon>dsKilometrosChofer.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\dsViajePorClientes.xsc">
+      <DependentUpon>dsViajePorClientes.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\dsViajePorClientes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsViajePorClientes.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\dsViajePorClientes.xss">
+      <DependentUpon>dsViajePorClientes.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DS_Viajes_Por_Localidad.xsc">
+      <DependentUpon>DS_Viajes_Por_Localidad.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DS_Viajes_Por_Localidad.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_Viajes_Por_Localidad.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\DS_Viajes_Por_Localidad.xss">
+      <DependentUpon>DS_Viajes_Por_Localidad.xsd</DependentUpon>
+    </None>
+    <None Include="DS_Mantenimientos_Mensuales.xsc">
+      <DependentUpon>DS_Mantenimientos_Mensuales.xsd</DependentUpon>
+    </None>
+    <None Include="DS_Mantenimientos_Mensuales.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_Mantenimientos_Mensuales.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DS_Mantenimientos_Mensuales.xss">
+      <DependentUpon>DS_Mantenimientos_Mensuales.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reporte\dsChofer.xsc">
+      <DependentUpon>dsChofer.xsd</DependentUpon>
+    </None>
+    <None Include="Reporte\dsChofer.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsChofer.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reporte\dsChofer.xss">
+      <DependentUpon>dsChofer.xsd</DependentUpon>
+    </None>
+    <None Include="Reporte\dsTipoCarga.xsc">
+      <DependentUpon>dsTipoCarga.xsd</DependentUpon>
+    </None>
+    <None Include="Reporte\dsTipoCarga.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsTipoCarga.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reporte\dsTipoCarga.xss">
+      <DependentUpon>dsTipoCarga.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logistics-delivery-truck-in-movement_2_.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SQL.Server.Compact.3.5">
+      <Visible>False</Visible>
+      <ProductName>SQL Server Compact 3.5 SP2</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
