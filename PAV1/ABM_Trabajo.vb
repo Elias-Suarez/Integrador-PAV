@@ -64,7 +64,7 @@
         Dim t As DataTable = dgv_trabajos.DataSource
 
         If chk_confirmar.Checked Then
-            If acceso.leo_tabla("id", " id = " & indice).Rows.Count = 1 Then
+            If acceso.leo_tabla("*", " id = " & indice).Rows.Count = 1 Then
                 acceso.borrar(" id = " & indice)
             Else
                 MessageBox.Show("No se puede eliminar el trabajo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

@@ -59,11 +59,7 @@ Partial Class ABM_Viaje
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btn_limpiar = New System.Windows.Forms.Button()
         Me.grp_chofer = New System.Windows.Forms.GroupBox()
-
         Me.nombre_chofer = New System.Windows.Forms.Label()
-        ''
-
-        ''
         Me.txt_numero_documento = New System.Windows.Forms.MaskedTextBox()
         Me.lbl_alerta_numero_documento = New System.Windows.Forms.Label()
         Me.cbx_tipo_documento = New System.Windows.Forms.ComboBox()
@@ -72,7 +68,6 @@ Partial Class ABM_Viaje
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lbl_alerta_campo = New System.Windows.Forms.Label()
         Me.btn_agregar_carga = New System.Windows.Forms.Button()
-
         Me.dgv_ABM_Viaje = New System.Windows.Forms.DataGridView()
         Me.dgv_patente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgv_fecha_salida = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -84,8 +79,6 @@ Partial Class ABM_Viaje
         Me.cp_destino = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tipo_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nro_doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        '
-        '
         Me.grp_datos_viaje.SuspendLayout()
         Me.grp_viaje.SuspendLayout()
         Me.grp_chofer.SuspendLayout()
@@ -469,28 +462,7 @@ Partial Class ABM_Viaje
         Me.grp_chofer.TabStop = False
         Me.grp_chofer.Text = "Datos de Chofer"
         '
-
-        '        nombre_chofer
-        ''
-        'lbl_nombre
-        '
-        'Me.lbl_nombre.AutoSize = True
-        'Me.lbl_nombre.Location = New System.Drawing.Point(138, 78)
-        'Me.lbl_nombre.Name = "lbl_nombre"
-        'Me.lbl_nombre.Size = New System.Drawing.Size(0, 13)
-        'Me.lbl_nombre.TabIndex = 33
-        ''
-        ''Label6
-        ''
-        'Me.Label6.AutoSize = True
-        'Me.Label6.Location = New System.Drawing.Point(35, 78)
-        'Me.Label6.Name = "Label6"
-        'Me.Label6.Size = New System.Drawing.Size(92, 13)
-        'Me.Label6.TabIndex = 33
-        'Me.Label6.Text = "Apellido y Nombre"
-        '
-        'Label12
-        '
+        'nombre_chofer
         '
         Me.nombre_chofer.AutoSize = True
         Me.nombre_chofer.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -576,7 +548,6 @@ Partial Class ABM_Viaje
         Me.btn_agregar_carga.Text = "Agregar Carga"
         Me.btn_agregar_carga.UseVisualStyleBackColor = True
         '
-
         'dgv_ABM_Viaje
         '
         Me.dgv_ABM_Viaje.AllowUserToAddRows = False
@@ -661,8 +632,6 @@ Partial Class ABM_Viaje
         Me.nro_doc.ReadOnly = True
         Me.nro_doc.Visible = False
         '
-        '
-        '
         'ABM_Viaje
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -682,7 +651,7 @@ Partial Class ABM_Viaje
         Me.MaximumSize = New System.Drawing.Size(800, 800)
         Me.MinimumSize = New System.Drawing.Size(599, 540)
         Me.Name = "ABM_Viaje"
-        Me.Text = "ABM_Viaje"
+        Me.Text = "ABM Viaje"
         Me.grp_datos_viaje.ResumeLayout(False)
         Me.grp_datos_viaje.PerformLayout()
         Me.grp_viaje.ResumeLayout(False)

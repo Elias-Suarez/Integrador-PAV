@@ -162,10 +162,30 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Combo.vb" />
-    <Compile Include="CrystalReport21.vb">
+    <Compile Include="Clientes_Mas_Referidos.Designer.vb">
+      <DependentUpon>Clientes_Mas_Referidos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes_Mas_Referidos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DS_Clientes_Mas_Requeridos.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReport2.rpt</DependentUpon>
+      <DependentUpon>DS_Clientes_Mas_Requeridos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS_Clientes_Mas_Requeridos.vb">
+      <DependentUpon>DS_Clientes_Mas_Requeridos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Report_Clientes_Mas_Requeridos.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Report_Clientes_Mas_Requeridos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\Report_Talleres_Mas_Usados.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Report_Talleres_Mas_Usados.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DataSet\Data_camiones_mas_reparados1.Designer.vb">
@@ -265,12 +285,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <Compile Include="Reportes\CrystalReport1.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReport1.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\Report_Camiones_mas_reparados1.vb">
       <AutoGen>True</AutoGen>
@@ -389,9 +403,16 @@
     <EmbeddedResource Include="Camiones_Mas_Reparados.resx">
       <DependentUpon>Camiones_Mas_Reparados.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReport2.rpt">
+    <EmbeddedResource Include="Clientes_Mas_Referidos.resx">
+      <DependentUpon>Clientes_Mas_Referidos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Report_Clientes_Mas_Requeridos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReport21.vb</LastGenOutput>
+      <LastGenOutput>Report_Clientes_Mas_Requeridos.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Report_Talleres_Mas_Usados.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Report_Talleres_Mas_Usados.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="KilometrosPorChofer.resx">
       <DependentUpon>KilometrosPorChofer.vb</DependentUpon>
@@ -421,10 +442,6 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\CrystalReport1.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReport1.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Report1.rdlc" />
     <EmbeddedResource Include="Reportes\Report_Camiones_mas_reparados.rpt">
@@ -528,6 +545,17 @@
     </None>
     <None Include="DataSet\DS_Viajes_Por_Localidad.xss">
       <DependentUpon>DS_Viajes_Por_Localidad.xsd</DependentUpon>
+    </None>
+    <None Include="DS_Clientes_Mas_Requeridos.xsc">
+      <DependentUpon>DS_Clientes_Mas_Requeridos.xsd</DependentUpon>
+    </None>
+    <None Include="DS_Clientes_Mas_Requeridos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_Clientes_Mas_Requeridos.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DS_Clientes_Mas_Requeridos.xss">
+      <DependentUpon>DS_Clientes_Mas_Requeridos.xsd</DependentUpon>
     </None>
     <None Include="DS_Mantenimientos_Mensuales.xsc">
       <DependentUpon>DS_Mantenimientos_Mensuales.xsd</DependentUpon>

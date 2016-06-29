@@ -1,147 +1,124 @@
 ﻿Public Class ABM_Carga
-    Dim completo As Boolean = False
+        Enum Guardar
+        insertar
+        modificar
+    End Enum
+    Dim accionGuardar = Guardar.insertar
+    Dim indice As Integer
 
-    Dim acceso As New ConexionBD
-
-    Public Sub deshabilitar()
-        If chbx_confirma_tipo_carga.Checked = False Then
-            btn_crear_carga.Enabled = True
-            btn_eliminar.Enabled = False
-            btn_guardar_carga.Enabled = False
-            lbl_nombre.Visible = False
-
-            lbl_descripcion.Visible = False
-        End If
+#Region "Carga datos"
+    Private Sub ABM_Trabajo_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.modo_inicio()
     End Sub
 
-    Public Sub habilitar()
-        If chbx_confirma_tipo_carga.Checked = True Then
-            btn_crear_carga.Enabled = True
-            btn_eliminar.Enabled = True
-            btn_guardar_carga.Enabled = True
-        End If
-    End Sub
-    Public Sub completos()
-        If txt_descripcion_carga.Text = "" And txt_nombre_carga.Text = "" Then
-            completo = False
-        Else
-            completo = True
-        End If
-    End Sub
+    Private Sub modo_inicio()
+        txtx_nombre.Text = ""
+        txtx_nombre.ReadOnly = True
 
-    Private Sub chbx_confirma_tipo_carga_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chbx_confirma_tipo_carga.CheckedChanged
-        completos()
-        If completo Then
-            habilitar()
-        Else
-            chbx_confirma_tipo_carga.Checked = False
-            deshabilitar()
-            MsgBox("Uno de los campos esta incompleto.")
-        End If
-    End Sub
-
-    Private Sub ABM_Carga_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        deshabilitar()
-
-        btn_volver.Enabled = True
-    End Sub
-
-    'nuevo
-
-    'Private Sub txt_nombre_carga_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-    '    If cbx_tipo_carga.Text = "" Then
-    '        cbx_tipo_carga.Focus()
-    '        lbl_alerta.Visible = True
-    '        lbl_carga.Visible = True
-    '    Else
-    '        lbl_alerta.Visible = False
-    '        lbl_carga.Visible = False
-    '    End If
-    'End Sub
-
-    Private Sub txt_descripcion_carga_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        If txt_nombre_carga.Text = "" Then
-            txt_nombre_carga.Focus()
-            lbl_alerta.Visible = True
-            lbl_nombre.Visible = True
-        Else
-            lbl_alerta.Visible = False
-            lbl_nombre.Visible = False
-        End If
-    End Sub
-
-    'Funciones tab para cambio de campo
-
-    Private Sub txt_nombre_carga_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_nombre_carga.LostFocus
-        If txt_nombre_carga.Text = "" Then
-            txt_nombre_carga.Focus()
-            lbl_alerta.Text = "Necesita completar los campos"
-            lbl_alerta.Visible = True
-            lbl_nombre.Visible = True
-        Else
-            lbl_alerta.Visible = False
-            lbl_nombre.Visible = False
-        End If
-    End Sub
-
-    Private Sub txt_descripcion_carga_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_descripcion_carga.LostFocus
-        If txt_descripcion_carga.Text = "" Then
-            txt_descripcion_carga.Focus()
-            lbl_alerta.Text = "Necesita completar los campos"
-            lbl_alerta.Visible = True
-            lbl_descripcion.Visible = True
-        Else
-            lbl_alerta.Visible = False
-            lbl_descripcion.Visible = False
-        End If
-    End Sub
-
-
-    Private Sub btn_volver_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_volver.Click
-        Me.Close()
-    End Sub
-
-    Private Sub txt_nombre_carga_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_nombre_carga.KeyPress
-        If Char.IsLetter(e.KeyChar) Or Char.IsWhiteSpace(e.KeyChar) Or Char.IsControl(e.KeyChar) Then
-            e.Handled = False
-            lbl_alerta.Visible = False
-        Else
-            e.Handled = True
-            lbl_alerta.Text = "Solo carácteres alfabéticos"
-            lbl_alerta.Visible = True
-
-        End If
-    End Sub
-
-    Private Sub btn_crear_carga_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_crear_carga.Click
         btn_eliminar.Enabled = False
-        btn_crear_carga.Enabled = False
-        btn_guardar_carga.Enabled = True
-        txt_descripcion_carga.Text = ""
-        txt_nombre_carga.Text = ""
+        btn_crear.Enabled = True
+        btn_guardar.Enabled = False
+
+        chk_confirmar.Checked = False
+
+        Me.actualizar_grilla()
     End Sub
 
-    Private Sub btn_guardar_carga_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_guardar_carga.Click
-        Me.lbx_ABM_Cargas.Items.Add(txt_nombre_carga.Text)
-        btn_crear_carga.Enabled = True
-        Dim query As String = ""
-        query = "INSERT INTO TipoCArga(nombre,descripcion) VALUES('" & Me.txt_nombre_carga.Text & "','" & Me.txt_descripcion_carga.Text & "')"
-        acceso.insertar(query)
-        Dim consulta As New ModeloCombo
-        consulta.limpiar(GroupBox1.Controls)
-        chbx_confirma_tipo_carga.Checked = False
+    Private Sub modo_editar()
+        txtx_nombre.ReadOnly = False
+
+        btn_eliminar.Enabled = True
+        btn_crear.Enabled = True
+        btn_guardar.Enabled = True
+
+        chk_confirmar.Checked = False
+        accionGuardar = Guardar.modificar
+
+
     End Sub
 
+    Private Sub modo_crear()
+        txtx_nombre.Text = ""
+        txtx_nombre.ReadOnly = False
 
-    Private Sub lbx_ABM_Cargas_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lbx_ABM_Cargas.SelectedIndexChanged
-        txt_nombre_carga.Text = ""
-        txt_descripcion_carga.Text = ""
-
-        txt_nombre_carga.Text = lbx_ABM_Cargas.SelectedItem.ToString
         btn_eliminar.Enabled = False
+        btn_crear.Enabled = False
+        btn_guardar.Enabled = True
+
+        chk_confirmar.Checked = False
+        accionGuardar = Guardar.insertar
+
+        Me.actualizar_grilla()
     End Sub
 
-    Private Sub GroupBox1_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GroupBox1.Enter
-
+    Private Sub actualizar_grilla()
+        Dim combo As New Combo
+        combo.carga_dgv("TipoCarga", dgv_carga, "id, nombre")
     End Sub
+#End Region
+
+#Region "Funcion Botones"
+    Private Sub btn_eliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_eliminar.Click
+        Dim acceso As New AccesoDatos With {._nombre_tabla = "TipoCarga"}
+        Dim t As DataTable = dgv_carga.DataSource
+
+        If chk_confirmar.Checked Then
+            If acceso.leo_Consulta("SELECT * FROM DetalleViaje WHERE tipo_carga = " & indice).Rows.Count = 0 Then
+                acceso.borrar(" id = " & indice)
+                MessageBox.Show("Carga eliminada con éxito", "Felicitaciones", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
+            Else
+                MessageBox.Show("No se puede eliminar la carga", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+            modo_inicio()
+        Else
+            chk_confirmar.Checked = False
+            MessageBox.Show("Confirmar Operación", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
+
+    Private Sub btn_guardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_guardar.Click
+        If chk_confirmar.Checked Then
+            Dim acceso As New AccesoDatos With {._nombre_tabla = "TipoCarga"}
+            If Not txtx_nombre.Text = "" Then
+                If accionGuardar = Guardar.insertar Then
+
+                    acceso.insertar2(" (nombre) VALUES ('" & txtx_nombre.Text & "')")
+                    indice = acceso.leo_tabla(" max(id) ").Rows.Item(0).Item(0)
+                    accionGuardar = Guardar.modificar
+                    Me.modo_editar()
+                    Me.actualizar_grilla()
+                Else
+
+                    acceso.modificar(" nombre = '" & txtx_nombre.Text & "'", " id = " & indice)
+                    actualizar_grilla()
+                    accionGuardar = Guardar.modificar
+                End If
+            Else
+                chk_confirmar.Checked = False
+                MessageBox.Show("Nombre no puede ser un campo vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+
+        Else
+            MessageBox.Show("Confirmar Operación", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+        chk_confirmar.Checked = False
+    End Sub
+
+    Private Sub btn_crear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_crear.Click
+        Me.modo_crear()
+    End Sub
+
+    Private Sub dgv_trabajos_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgv_carga.CellDoubleClick
+        Dim t As DataTable = dgv_carga.DataSource
+
+        txtx_nombre.Text = t.Rows.Item(dgv_carga.CurrentRow.Index).Item(1)
+        indice = t.Rows.Item(dgv_carga.CurrentRow.Index).Item(0)
+
+        modo_editar()
+    End Sub
+
+#End Region
+
+
 End Class

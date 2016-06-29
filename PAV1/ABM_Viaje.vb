@@ -176,29 +176,33 @@
         If Me.cbx_confirma_datos_viaje.Checked Then
             If validar_fechas() Then
                 If completo_viaje() Then
-                    Dim acceso As New AccesoDatos With {._nombre_tabla = "Viaje"}
+                    If verificar_sin_viaje() Then
+                        Dim acceso As New AccesoDatos With {._nombre_tabla = "Viaje"}
 
-                    If b = Base.insertar Then
+                        If b = Base.insertar Then
 
-                        acceso.insertar2("(patente, fecha_salida, nro_cuit, localidad_origen, fecha_llegada, domicilio_entrega, localidad_destino, kilometros, tipo_doc_chofer, nro_doc_chofer) VALUES ('" _
-                                        & Me.cbx_patente.SelectedValue & "',CONVERT(varchar(10),'" & Me.mtb_fecha_salida.Text & "',103),'" & Me.txt_numero_cliente.Text & "'," & Me.cbx_localidad_origen.SelectedValue & ",CONVERT(varchar(10),'" & _
-                                        Me.mtb_fecha_llegada.Text & "',103),'" & Me.txt_domiciolio_entrega.Text & "'," & Me.cbx_localidad_destino.SelectedValue & "," & Me.txt_kilometros.Text & ",'" _
-                                        & Me.cbx_tipo_documento.SelectedValue & "','" & Me.txt_numero_documento.Text & "')")
-                        acceso._nombre_tabla = "Camion"
-                        Dim km As Integer = acceso.leo_tabla("kilometraje", " patente = '" & cbx_patente.SelectedValue & "'").Rows(0).Item(0)
+                            acceso.insertar2("(patente, fecha_salida, nro_cuit, localidad_origen, fecha_llegada, domicilio_entrega, localidad_destino, kilometros, tipo_doc_chofer, nro_doc_chofer) VALUES ('" _
+                                            & Me.cbx_patente.SelectedValue & "',CONVERT(varchar(10),'" & Me.mtb_fecha_salida.Text & "',103),'" & Me.txt_numero_cliente.Text & "'," & Me.cbx_localidad_origen.SelectedValue & ",CONVERT(varchar(10),'" & _
+                                            Me.mtb_fecha_llegada.Text & "',103),'" & Me.txt_domiciolio_entrega.Text & "'," & Me.cbx_localidad_destino.SelectedValue & "," & Me.txt_kilometros.Text & ",'" _
+                                            & Me.cbx_tipo_documento.SelectedValue & "','" & Me.txt_numero_documento.Text & "')")
+                            acceso._nombre_tabla = "Camion"
+                            Dim km As Integer = acceso.leo_tabla("kilometraje", " patente = '" & cbx_patente.SelectedValue & "'").Rows(0).Item(0)
 
-                        acceso.modificar("kilometraje = " & (km + txt_kilometros.Text), " patente = '" & cbx_patente.SelectedValue & "'")
+                            acceso.modificar("kilometraje = " & (km + txt_kilometros.Text), " patente = '" & cbx_patente.SelectedValue & "'")
 
 
-                        MessageBox.Show("Operacion realizada exitosamente", "Enhorabuena", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        b = Base.modificar
-                        btn_eliminar_viaje.Enabled = False
+                            MessageBox.Show("Operacion realizada exitosamente", "Enhorabuena", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            b = Base.modificar
+                            btn_eliminar_viaje.Enabled = False
+                        Else
+                            acceso.modificar("nro_cuit = '" & Me.txt_numero_cliente.Text & "', localidad_origen = " & Me.cbx_localidad_origen.SelectedValue & ", fecha_llegada = CONVERT(varchar(10), '" & Me.mtb_fecha_llegada.Text & "',103), domicilio_entrega = '" & Me.txt_domiciolio_entrega.Text & "', localidad_destino = " & Me.cbx_localidad_destino.SelectedValue & ", kilometros = " & Me.txt_kilometros.Text & ", tipo_doc_chofer = " & Me.cbx_tipo_documento.SelectedValue & ", nro_doc_chofer = " & Me.txt_numero_documento.Text, "patente = '" & Me.cbx_patente.SelectedValue & "' and fecha_salida = '" & mtb_fecha_salida.Text & "'")
+                        End If
+
+                        Dim cmb As New Combo
+                        cmb.carga_dgv("viaje v, Chofer c, localidad o, localidad d", Me.dgv_ABM_Viaje, "v.patente, v.fecha_salida, c.nombre, c.apellido, o.nombre as 'origen', d.nombre as 'destino'", "v.tipo_doc_chofer = c.tipo_doc and v.nro_doc_chofer = c.nro_doc and o.cp = v.localidad_origen and v.localidad_destino = d.cp")
                     Else
-                        acceso.modificar("nro_cuit = '" & Me.txt_numero_cliente.Text & "', localidad_origen = " & Me.cbx_localidad_origen.SelectedValue & ", fecha_llegada = CONVERT(varchar(10), '" & Me.mtb_fecha_llegada.Text & "',103), domicilio_entrega = '" & Me.txt_domiciolio_entrega.Text & "', localidad_destino = " & Me.cbx_localidad_destino.SelectedValue & ", kilometros = " & Me.txt_kilometros.Text & ", tipo_doc_chofer = " & Me.cbx_tipo_documento.SelectedValue & ", nro_doc_chofer = " & Me.txt_numero_documento.Text, "patente = '" & Me.cbx_patente.SelectedValue & "' and fecha_salida = '" & mtb_fecha_salida.Text & "'")
+                        MessageBox.Show("No se puede cargar el viaje. El chofer o el camion se encuentran en viaje", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End If
-
-                    Dim cmb As New Combo
-                    cmb.carga_dgv("viaje v, Chofer c, localidad o, localidad d", Me.dgv_ABM_Viaje, "v.patente, v.fecha_salida, c.nombre, c.apellido, o.nombre as 'origen', d.nombre as 'destino'", "v.tipo_doc_chofer = c.tipo_doc and v.nro_doc_chofer = c.nro_doc and o.cp = v.localidad_origen and v.localidad_destino = d.cp")
                 Else
                     MessageBox.Show("Hay campos sin completar!", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
@@ -220,6 +224,26 @@
         Else
             Return True
         End If
+    End Function
+
+    Private Function verificar_sin_viaje() As Boolean
+        Dim sql As String = ""
+        Dim f_sal As Date = mtb_fecha_salida.Text
+        Dim s As String = Format(f_sal, "yyyy-MM-dd")
+        Dim f_lleg As Date = mtb_fecha_llegada.Text
+        Dim l As String = Format(f_lleg, "yyyy-MM-dd")
+        Dim acceso As New AccesoDatos
+        Dim t As New DataTable
+
+        sql = "select * from Viaje where (fecha_llegada between '" & s & "' and '" & l & "' or fecha_salida between '" & s & "' and '" & l & "') and (tipo_doc_chofer = " & Me.cbx_tipo_documento.SelectedValue & " and nro_doc_chofer = " & Me.txt_numero_documento.Text & ")"
+
+        t = acceso.leo_Consulta(sql)
+
+        If t.Rows.Count = 0 Then : Return True
+        Else : Return False
+        End If
+
+
     End Function
 
     Private Sub btn_agregar_carga_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_agregar_carga.Click
@@ -297,8 +321,13 @@
         Dim b As Boolean = True
 
         If mtb_fecha_llegada.MaskCompleted Then
-            If Convert.ToDateTime(mtb_fecha_salida.Text) > Convert.ToDateTime(mtb_fecha_llegada.Text) Then
-                b = False
+
+            If IsDate(mtb_fecha_llegada.Text) And IsDate(mtb_fecha_salida.Text) Then
+                If Convert.ToDateTime(mtb_fecha_salida.Text) > Convert.ToDateTime(mtb_fecha_llegada.Text) Then
+                    b = False
+                End If
+            Else
+                MessageBox.Show("Una o más fechas no tienen formato de fecha", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         Else
             b = False
@@ -417,17 +446,24 @@
             lbl_alerta_campo.Visible = True
             lbl_alerta_fecha_llegada.Visible = True
         Else
-            If IsDate(mtb_fecha_llegada.Text) Then
-                If Convert.ToDateTime(mtb_fecha_salida.Text) > Convert.ToDateTime(mtb_fecha_llegada.Text) Then
-                    MessageBox.Show("La fecha de llegada debe ser mayor a la de salida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    mtb_fecha_llegada.Focus()
+
+            If IsDate(mtb_fecha_llegada.Text) And IsDate(mtb_fecha_salida.Text) Then
+                If IsDate(mtb_fecha_llegada.Text) Then
+                    If Convert.ToDateTime(mtb_fecha_salida.Text) > Convert.ToDateTime(mtb_fecha_llegada.Text) Then
+                        MessageBox.Show("La fecha de llegada debe ser mayor a la de salida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        mtb_fecha_llegada.Focus()
+
+                    Else
+                        Me.lbl_alerta_campo.Visible = False
+                        Me.lbl_alerta_fecha_llegada.Visible = False
+                    End If
                 Else
-                    Me.lbl_alerta_campo.Visible = False
-                    Me.lbl_alerta_fecha_llegada.Visible = False
+                    MessageBox.Show("El dato ingresado no es una fecha válida", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End If
             Else
-                MessageBox.Show("El dato ingresado no es una fecha válida", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                MessageBox.Show("Una o más fechas no tienen formato de fecha", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
+
         End If
     End Sub
 

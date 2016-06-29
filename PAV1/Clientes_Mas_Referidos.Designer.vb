@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Talleres_mas_Usados
+Partial Class Clientes_Mas_Referidos
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -136,7 +136,7 @@ Partial Class Talleres_mas_Usados
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Fecha Desde"
         '
-        'Talleres_mas_Usados
+        'Clientes_Mas_Referidos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -145,8 +145,8 @@ Partial Class Talleres_mas_Usados
         Me.Controls.Add(Me.btn_buscar)
         Me.Controls.Add(Me.btn_volver)
         Me.Controls.Add(Me.grp_filtros)
-        Me.Name = "Talleres_mas_Usados"
-        Me.Text = "Listado de Talleres Más Utilizados"
+        Me.Name = "Clientes_Mas_Referidos"
+        Me.Text = "Listado de Clientes Frecuentes"
         Me.grp_filtros.ResumeLayout(False)
         Me.grp_filtros.PerformLayout()
         Me.ResumeLayout(False)

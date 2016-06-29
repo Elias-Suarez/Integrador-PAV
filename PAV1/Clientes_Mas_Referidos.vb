@@ -1,4 +1,4 @@
-﻿Public Class Mantenimientos_Mas_Realizados
+﻿Public Class Clientes_Mas_Referidos
 
 #Region "Carga datos"
     Private Sub Mantenimientos_Mas_Realizados_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -6,9 +6,6 @@
     End Sub
 
     Private Sub modo_inicio()
-        Dim combo As New Combo
-        combo.cargar_combo(cmb_taller, "codigo_taller", "nombre", "Taller")
-        cmb_taller.SelectedIndex = -1
         lbl_alerta_fecha_desde.Visible = False
         lbl_alerta_fecha_hasta.Visible = False
     End Sub
@@ -20,37 +17,43 @@
 
 #Region "Funcion Botones"
     Private Sub btn_buscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_buscar.Click
-        Dim columnas As String = " tm.id_trabajo 'trabajo', tr.nombre 'nombre', COUNT(tm.id_trabajo) 'cantidad' "
-        Dim restricciones As String = " tm.id_trabajo = tr.id "
-        Dim tablas As String = " TrabajoXMantenimiento tm, Trabajo tr "
+        Dim columnas As String = " c.nro_cuit 'cuil', c.razon_social 'nombre', c.nombre_contacto 'contacto', COUNT(c.nro_cuit) 'cantidad' "
+        Dim restricciones As String = " v.nro_cuit = c.nro_cuit "
+        Dim tablas As String = "  Cliente c, Viaje v   "
         Dim sql As String = ""
 
         Dim tabla As New DataTable
-        Dim reporte As New Report_Manteimiento_mas_realizad
+        Dim reporte As New Report_Clientes_Mas_Requeridos
 
         If mtb_fecha_desde.MaskCompleted And mtb_fecha_hasta.MaskCompleted Then
-            restricciones &= " AND tm.fecha >= CONVERT( VARCHAR(10), '" & mtb_fecha_desde.Text & "',103) "
-            restricciones &= " AND tm.fecha <= CONVERT( VARCHAR(10), '" & mtb_fecha_hasta.Text & "',103) "
+            If mtb_fecha_desde.Text <= mtb_fecha_hasta.Text Then
+                restricciones &= " AND v.fecha_salida >= CONVERT( VARCHAR(10), '" & mtb_fecha_desde.Text & "',103) "
+                restricciones &= " AND v.fecha_salida <= CONVERT( VARCHAR(10), '" & mtb_fecha_hasta.Text & "',103) "
 
-            If Not cmb_taller.SelectedIndex = -1 Then
-                tablas &= ", Mantenimiento m "
-                restricciones &= " AND tm.patente = m.patente AND tm.fecha = m.fecha"
-                restricciones &= " AND m.cod_taller = " & cmb_taller.SelectedValue & " "
+
+
+                Dim acceso As New AccesoDatos With {._nombre_tabla = tablas}
+
+                sql = "SELECT " & columnas
+                sql &= " FROM " & tablas
+                sql &= " WHERE " & restricciones
+                sql &= " GROUP BY c.nro_cuit, c.razon_social, c.nombre_contacto ORDER BY cantidad DESC"
+
+
+                tabla = acceso.leo_Consulta(sql)
+
+
+                If tabla.Rows.Count = 0 Then
+
+                    MessageBox.Show("No existen datos para mostrar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Else
+                    reporte.SetDataSource(tabla)
+
+                    rpv_reporte.ReportSource = reporte
+                    rpv_reporte.Show()
+                    rpv_reporte.Refresh()
+                End If
             End If
-
-            Dim acceso As New AccesoDatos With {._nombre_tabla = tablas}
-
-            sql = "SELECT " & columnas
-            sql &= " FROM " & tablas
-            sql &= " WHERE " & restricciones
-            sql &= " GROUP BY id_trabajo, tr.nombre ORDER BY Cantidad DESC"
-
-            tabla = acceso.leo_Consulta(sql)
-            reporte.SetDataSource(tabla)
-
-            rpv_reporte.ReportSource = reporte
-            rpv_reporte.Show()
-            rpv_reporte.Refresh()
         Else
             MessageBox.Show("Ingrese el período del informe", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
@@ -58,10 +61,10 @@
 
     End Sub
 
-    Private Sub btn_volver_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_volver.Click
+    Private Sub btn_volver_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_volver.Click
+        Listados.Show()
         Me.Close()
     End Sub
-
 
 #End Region
 
@@ -77,7 +80,6 @@
             Else
                 MessageBox.Show("Una o más fechas no tienen formato de fecha", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
-
         End If
     End Sub
 
@@ -88,9 +90,13 @@
 
     Private Sub mtb_fecha_hasta_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles mtb_fecha_hasta.LostFocus
         Me.validar_fechas()
-        Me.lbl_alerta_fecha_desde.Visible = Not mtb_fecha_hasta.MaskCompleted
+        Me.lbl_alerta_fecha_hasta.Visible = Not mtb_fecha_hasta.MaskCompleted
     End Sub
 
 #End Region
+
+
+
+
 
 End Class

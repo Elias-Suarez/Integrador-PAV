@@ -44,4 +44,19 @@
         ViajesPorCliente.Show()
         Me.Close()
     End Sub
+
+    Private Sub btn_viajes_por_localidad_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_viajes_por_localidad.Click
+        Estad_Viajes_Por_Localidad.Show()
+        Me.Close()
+    End Sub
+
+    Private Sub btn_mantenimientos_menusales_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_mantenimientos_menusales.Click
+        Form_Mantenimientos_Mensuales.Show()
+        Me.Close()
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_clientes_frecuentes.Click
+        Clientes_Mas_Referidos.Show()
+        Me.Close()
+    End Sub
 End Class

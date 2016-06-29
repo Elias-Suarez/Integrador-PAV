@@ -30,7 +30,7 @@ Partial Class Menu_Principal
         Me.btn_camiones = New System.Windows.Forms.Button()
         Me.btn_cerrar = New System.Windows.Forms.Button()
         Me.btnTaller = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btn_mantenimiento = New System.Windows.Forms.Button()
         Me.btn_listados = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
@@ -58,7 +58,6 @@ Partial Class Menu_Principal
         '
         'btn_choferes
         '
-        Me.btn_choferes.BackgroundImage = CType(resources.GetObject("btn_choferes.BackgroundImage"), System.Drawing.Image)
         Me.btn_choferes.FlatAppearance.BorderSize = 0
         Me.btn_choferes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_choferes.Image = CType(resources.GetObject("btn_choferes.Image"), System.Drawing.Image)
@@ -95,10 +94,10 @@ Partial Class Menu_Principal
         Me.btn_cerrar.FlatAppearance.BorderSize = 0
         Me.btn_cerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_cerrar.Image = CType(resources.GetObject("btn_cerrar.Image"), System.Drawing.Image)
-        Me.btn_cerrar.Location = New System.Drawing.Point(623, 226)
+        Me.btn_cerrar.Location = New System.Drawing.Point(564, 222)
         Me.btn_cerrar.Name = "btn_cerrar"
         Me.btn_cerrar.Size = New System.Drawing.Size(121, 42)
-        Me.btn_cerrar.TabIndex = 6
+        Me.btn_cerrar.TabIndex = 8
         Me.btn_cerrar.UseVisualStyleBackColor = True
         '
         'btnTaller
@@ -109,27 +108,33 @@ Partial Class Menu_Principal
         Me.btnTaller.Location = New System.Drawing.Point(504, 104)
         Me.btnTaller.Name = "btnTaller"
         Me.btnTaller.Size = New System.Drawing.Size(240, 86)
-        Me.btnTaller.TabIndex = 7
+        Me.btnTaller.TabIndex = 5
         Me.btnTaller.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btn_mantenimiento
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(30, 196)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(222, 60)
-        Me.Button1.TabIndex = 8
-        Me.Button1.Text = "Mantenimiento"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btn_mantenimiento.BackColor = System.Drawing.SystemColors.InactiveCaption
+        Me.btn_mantenimiento.BackgroundImage = CType(resources.GetObject("btn_mantenimiento.BackgroundImage"), System.Drawing.Image)
+        Me.btn_mantenimiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_mantenimiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_mantenimiento.ForeColor = System.Drawing.SystemColors.InactiveCaption
+        Me.btn_mantenimiento.Image = CType(resources.GetObject("btn_mantenimiento.Image"), System.Drawing.Image)
+        Me.btn_mantenimiento.Location = New System.Drawing.Point(12, 196)
+        Me.btn_mantenimiento.Name = "btn_mantenimiento"
+        Me.btn_mantenimiento.Size = New System.Drawing.Size(240, 86)
+        Me.btn_mantenimiento.TabIndex = 6
+        Me.btn_mantenimiento.UseVisualStyleBackColor = False
         '
         'btn_listados
         '
+        Me.btn_listados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_listados.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_listados.Location = New System.Drawing.Point(276, 196)
+        Me.btn_listados.ForeColor = System.Drawing.SystemColors.InactiveCaption
+        Me.btn_listados.Image = CType(resources.GetObject("btn_listados.Image"), System.Drawing.Image)
+        Me.btn_listados.Location = New System.Drawing.Point(258, 196)
         Me.btn_listados.Name = "btn_listados"
-        Me.btn_listados.Size = New System.Drawing.Size(222, 60)
-        Me.btn_listados.TabIndex = 8
-        Me.btn_listados.Text = "Listados"
+        Me.btn_listados.Size = New System.Drawing.Size(240, 86)
+        Me.btn_listados.TabIndex = 7
         Me.btn_listados.UseVisualStyleBackColor = True
         '
         'Menu_Principal
@@ -137,9 +142,9 @@ Partial Class Menu_Principal
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.InactiveCaption
-        Me.ClientSize = New System.Drawing.Size(757, 268)
+        Me.ClientSize = New System.Drawing.Size(757, 286)
         Me.Controls.Add(Me.btn_listados)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btn_mantenimiento)
         Me.Controls.Add(Me.btnTaller)
         Me.Controls.Add(Me.btn_cerrar)
         Me.Controls.Add(Me.btn_camiones)
@@ -148,7 +153,8 @@ Partial Class Menu_Principal
         Me.Controls.Add(Me.btn_cargas)
         Me.Controls.Add(Me.btn_viajes)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximumSize = New System.Drawing.Size(773, 307)
+        Me.MaximumSize = New System.Drawing.Size(773, 325)
+        Me.MinimumSize = New System.Drawing.Size(773, 325)
         Me.Name = "Menu_Principal"
         Me.Text = "Menu Principal"
         Me.ResumeLayout(False)
@@ -161,6 +167,6 @@ Partial Class Menu_Principal
     Friend WithEvents btn_camiones As System.Windows.Forms.Button
     Friend WithEvents btn_cerrar As System.Windows.Forms.Button
     Friend WithEvents btnTaller As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btn_mantenimiento As System.Windows.Forms.Button
     Friend WithEvents btn_listados As System.Windows.Forms.Button
 End Class

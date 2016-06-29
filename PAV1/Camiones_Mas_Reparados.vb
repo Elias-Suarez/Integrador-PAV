@@ -80,10 +80,17 @@
 
     Private Sub validar_fechas()
         If mtb_fecha_desde.MaskCompleted And mtb_fecha_hasta.MaskCompleted Then
-            If Convert.ToDateTime(mtb_fecha_desde.Text) > Convert.ToDateTime(mtb_fecha_hasta.Text) Then
-                MsgBox("La fecha DESDE no puede ser mayor que la fecha HASTA")
+
+            If mtb_fecha_desde.MaskCompleted And mtb_fecha_hasta.MaskCompleted Then
+                If IsDate(mtb_fecha_desde.Text) And IsDate(mtb_fecha_hasta.Text) Then
+                    If Convert.ToDateTime(mtb_fecha_desde.Text) > Convert.ToDateTime(mtb_fecha_hasta.Text) Then
+                        MsgBox("La fecha DESDE no puede ser mayor que la fecha HASTA")
+                    End If
+                Else
+                    MessageBox.Show("Una o más fechas no tienen formato de fecha", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
             End If
-        End If
+            End If
     End Sub
 
     Private Sub mtb_fecha_desde_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles mtb_fecha_desde.LostFocus
